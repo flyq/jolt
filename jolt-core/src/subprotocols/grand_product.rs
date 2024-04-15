@@ -10,8 +10,8 @@ use ark_ff::PrimeField;
 use ark_serialize::*;
 use merlin::Transcript;
 
-#[derive(Debug, Clone)]
-pub struct GrandProductCircuit<F> {
+#[derive(Debug, Clone, CanonicalSerialize, CanonicalDeserialize)]
+pub struct GrandProductCircuit<F: CanonicalSerialize + CanonicalDeserialize> {
     left_vec: Vec<DensePolynomial<F>>,
     right_vec: Vec<DensePolynomial<F>>,
 }

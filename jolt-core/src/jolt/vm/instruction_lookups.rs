@@ -768,7 +768,7 @@ pub struct PrimarySumcheck<F: PrimeField, G: CurveGroup<ScalarField = F>> {
     opening_proof: BatchedHyraxOpeningProof<NUM_R1CS_POLYS, G>,
 }
 
-#[derive(Clone)]
+#[derive(Default, Clone, CanonicalDeserialize, CanonicalSerialize)]
 pub struct InstructionLookupsPreprocessing<F: PrimeField> {
     subtable_to_memory_indices: Vec<Vec<usize>>, // Vec<Range<usize>>?
     instruction_to_memory_indices: Vec<Vec<usize>>,
