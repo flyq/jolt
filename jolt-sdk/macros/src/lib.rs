@@ -176,9 +176,9 @@ impl MacroBuilder {
                     RV32IJoltVM::preprocess(
                         bytecode,
                         memory_init,
-                        1 << 10,
-                        1 << 10,
-                        1 << 14
+                        1 << 20,
+                        1 << 20,
+                        1 << 24
                     );
 
                 (program, preprocessing)
