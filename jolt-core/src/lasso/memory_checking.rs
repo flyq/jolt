@@ -21,7 +21,7 @@ use rayon::iter::{IntoParallelIterator, IntoParallelRefIterator, ParallelIterato
 use std::iter::zip;
 use std::marker::PhantomData;
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct MultisetHashes<F: PrimeField> {
     /// Multiset hash of "read" tuples
     pub read_hashes: Vec<F>,
@@ -61,7 +61,7 @@ impl<F: PrimeField> MultisetHashes<F> {
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct MemoryCheckingProof<G, Polynomials, ReadWriteOpenings, InitFinalOpenings>
 where
     G: CurveGroup,

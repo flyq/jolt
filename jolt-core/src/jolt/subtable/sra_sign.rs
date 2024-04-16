@@ -6,7 +6,7 @@ use super::LassoSubtable;
 use crate::utils::math::Math;
 use crate::utils::split_bits;
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct SraSignSubtable<F: PrimeField, const WORD_SIZE: usize> {
     _field: PhantomData<F>,
 }

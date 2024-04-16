@@ -55,7 +55,7 @@ macro_rules! subtable_enum {
         #[allow(non_camel_case_types)]
         #[repr(usize)]
         #[enum_dispatch(LassoSubtable<F>)]
-        #[derive(EnumCountMacro, EnumIter)]
+        #[derive(Clone, EnumCountMacro, EnumIter)]
         pub enum $enum_name<F: PrimeField> { $($alias($struct)),+ }
         impl<F: PrimeField> From<SubtableId> for $enum_name<F> {
           fn from(subtable_id: SubtableId) -> Self {

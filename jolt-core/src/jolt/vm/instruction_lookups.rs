@@ -36,6 +36,7 @@ use crate::{
 };
 
 /// All polynomials associated with Jolt instruction lookups.
+#[derive(Clone)]
 pub struct InstructionPolynomials<F, G>
 where
     F: PrimeField,
@@ -75,7 +76,7 @@ where
 }
 
 /// Commitments to BatchedInstructionPolynomials.
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct InstructionCommitment<G: CurveGroup> {
     pub trace_commitment: Vec<HyraxCommitment<NUM_R1CS_POLYS, G>>,
     /// Commitment to final_cts_i polynomials.
@@ -128,7 +129,7 @@ where
     }
 }
 
-#[derive(Debug, CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, Debug, CanonicalSerialize, CanonicalDeserialize)]
 /// Polynomial openings associated with the "primary sumcheck" of Jolt instruction lookups.
 struct PrimarySumcheckOpenings<F>
 where
@@ -210,7 +211,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct InstructionReadWriteOpenings<F>
 where
     F: PrimeField,
@@ -325,7 +326,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct InstructionFinalOpenings<F, Subtables>
 where
     F: PrimeField,
@@ -742,7 +743,7 @@ where
 }
 
 /// Proof of instruction lookups for a single Jolt program execution.
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct InstructionLookupsProof<const C: usize, const M: usize, F, G, InstructionSet, Subtables>
 where
     F: PrimeField,
@@ -760,7 +761,7 @@ where
     >,
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct PrimarySumcheck<F: PrimeField, G: CurveGroup<ScalarField = F>> {
     sumcheck_proof: SumcheckInstanceProof<F>,
     num_rounds: usize,

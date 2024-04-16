@@ -9,7 +9,7 @@ use super::LassoSubtable;
 /// Example usage in ADD:
 /// Input z is of 65 bits, which is split into 20-bit chunks.
 /// This subtable is used to remove the overflow bit from the 4th chunk.
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct TruncateOverflowSubtable<F: PrimeField, const WORD_SIZE: usize> {
     _field: PhantomData<F>,
 }

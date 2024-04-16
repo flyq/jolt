@@ -264,6 +264,7 @@ const RAM_2: usize = 4;
 const RAM_3: usize = 5;
 const RAM_4: usize = 6;
 
+#[derive(Clone)]
 pub struct ReadWriteMemory<F, G>
 where
     F: PrimeField,
@@ -799,7 +800,7 @@ impl<F: PrimeField, G: CurveGroup<ScalarField = F>> ReadWriteMemory<F, G> {
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct MemoryCommitment<G: CurveGroup> {
     pub trace_commitments: Vec<HyraxCommitment<NUM_R1CS_POLYS, G>>,
     pub v_final_commitment: HyraxCommitment<1, G>,
@@ -824,7 +825,7 @@ impl<G: CurveGroup> AppendToTranscript<G> for MemoryCommitment<G> {
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct MemoryReadWriteOpenings<F, G>
 where
     F: PrimeField,
@@ -955,7 +956,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct MemoryInitFinalOpenings<F>
 where
     F: PrimeField,
@@ -970,7 +971,7 @@ where
     t_final: F,
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct MemoryInitFinalOpeningProof<F, G>
 where
     F: PrimeField,
@@ -1320,7 +1321,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct OutputSumcheckProof<F, G>
 where
     F: PrimeField,
@@ -1482,7 +1483,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct ReadWriteMemoryProof<F, G>
 where
     F: PrimeField,

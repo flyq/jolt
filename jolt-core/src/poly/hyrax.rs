@@ -139,7 +139,7 @@ impl<const RATIO: usize, G: CurveGroup> AppendToTranscript<G> for HyraxCommitmen
     }
 }
 
-#[derive(Debug, CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, Debug, CanonicalSerialize, CanonicalDeserialize)]
 pub struct HyraxOpeningProof<const RATIO: usize, G: CurveGroup> {
     vector_matrix_product: Vec<G::ScalarField>,
 }
@@ -234,7 +234,7 @@ impl<const RATIO: usize, G: CurveGroup> HyraxOpeningProof<RATIO, G> {
     }
 }
 
-#[derive(Debug, CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, Debug, CanonicalSerialize, CanonicalDeserialize)]
 pub struct BatchedHyraxOpeningProof<const RATIO: usize, G: CurveGroup> {
     joint_proof: HyraxOpeningProof<RATIO, G>,
 }

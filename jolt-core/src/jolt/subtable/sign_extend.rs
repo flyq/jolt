@@ -3,7 +3,7 @@ use std::marker::PhantomData;
 
 use super::LassoSubtable;
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct SignExtendSubtable<F: PrimeField, const WIDTH: usize> {
     _field: PhantomData<F>,
 }

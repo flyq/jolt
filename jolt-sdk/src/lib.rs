@@ -45,7 +45,7 @@ pub use jolt_core::jolt::vm::{
 pub use tracer;
 
 #[cfg(feature = "std")]
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(CanonicalSerialize, CanonicalDeserialize, Clone)]
 pub struct Proof {
     pub proof: RV32IJoltProof<F, G>,
     pub commitments: JoltCommitments<G>,

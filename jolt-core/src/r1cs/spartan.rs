@@ -21,7 +21,7 @@ use crate::{
 };
 use common::constants::NUM_R1CS_POLYS;
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct UniformSpartanKey<F: PrimeField> {
     shape_single_step: R1CSShape<F>, // Single step shape
     num_cons_total: usize,           // Number of constraints
@@ -179,7 +179,7 @@ impl<F: PrimeField> IndexablePoly<F> for SegmentedPaddedWitness<F> {
 /// A succinct proof of knowledge of a witness to a relaxed R1CS instance
 /// The proof is produced using Spartan's combination of the sum-check and
 /// the commitment to a vector viewed as a polynomial commitment
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct UniformSpartanProof<F: PrimeField, G: CurveGroup<ScalarField = F>> {
     outer_sumcheck_proof: SumcheckInstanceProof<F>,
     outer_sumcheck_claims: (F, F, F),

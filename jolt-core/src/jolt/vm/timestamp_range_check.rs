@@ -32,6 +32,7 @@ use crate::{
 
 use super::read_write_memory::MemoryCommitment;
 
+#[derive(Clone)]
 pub struct RangeCheckPolynomials<F, G>
 where
     F: PrimeField,
@@ -166,7 +167,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct RangeCheckCommitment<G: CurveGroup> {
     pub(super) commitments: Vec<HyraxCommitment<NUM_R1CS_POLYS, G>>,
 }
@@ -207,7 +208,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct RangeCheckOpenings<F, G>
 where
     F: PrimeField,
@@ -557,7 +558,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct TimestampValidityProof<F, G>
 where
     F: PrimeField,

@@ -54,7 +54,7 @@ where
     pub read_write_memory: ReadWriteMemoryPreprocessing,
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(CanonicalSerialize, CanonicalDeserialize, Clone)]
 pub struct JoltProof<const C: usize, const M: usize, F, G, InstructionSet, Subtables>
 where
     F: PrimeField,
@@ -70,6 +70,7 @@ where
     pub r1cs: R1CSProof<F, G>,
 }
 
+#[derive(Clone)]
 pub struct JoltPolynomials<F, G>
 where
     F: PrimeField,
@@ -81,7 +82,7 @@ where
     pub instruction_lookups: InstructionPolynomials<F, G>,
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct JoltCommitments<G: CurveGroup> {
     pub bytecode: BytecodeCommitment<G>,
     pub read_write_memory: MemoryCommitment<G>,

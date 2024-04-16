@@ -281,7 +281,7 @@ impl<F: PrimeField> R1CSInputs<F> {
 }
 
 /// Commitments unique to R1CS.
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct R1CSCommitment<G: CurveGroup> {
     io: Vec<HyraxCommitment<NUM_R1CS_POLYS, G>>,
     aux: Vec<HyraxCommitment<NUM_R1CS_POLYS, G>>,
@@ -316,7 +316,7 @@ impl<G: CurveGroup> AppendToTranscript<G> for R1CSCommitment<G> {
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct R1CSProof<F: PrimeField, G: CurveGroup<ScalarField = F>> {
     pub key: UniformSpartanKey<F>,
     proof: UniformSpartanProof<F, G>,

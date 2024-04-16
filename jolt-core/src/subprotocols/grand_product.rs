@@ -105,7 +105,7 @@ impl<F: PrimeField> GrandProductCircuit<F> {
     }
 }
 
-#[derive(Debug, CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Debug, Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct LayerProofBatched<F: PrimeField> {
     pub proof: SumcheckInstanceProof<F>,
     pub claims_poly_A: Vec<F>,
@@ -214,7 +214,7 @@ impl<F: PrimeField> BatchedGrandProductCircuit<F> {
     }
 }
 
-#[derive(Debug, CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, Debug, CanonicalSerialize, CanonicalDeserialize)]
 pub struct BatchedGrandProductArgument<F: PrimeField> {
     proof: Vec<LayerProofBatched<F>>,
 }

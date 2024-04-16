@@ -7,7 +7,7 @@ use super::LassoSubtable;
 use crate::utils::math::Math;
 use crate::utils::split_bits;
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct SllSubtable<F: PrimeField, const CHUNK_INDEX: usize, const WORD_SIZE: usize> {
     _field: PhantomData<F>,
 }

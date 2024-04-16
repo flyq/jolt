@@ -141,6 +141,7 @@ pub fn random_bytecode_trace(
     trace
 }
 
+#[derive(Clone)]
 pub struct BytecodePolynomials<F: PrimeField, G: CurveGroup<ScalarField = F>> {
     _group: PhantomData<G>,
     /// MLE of read/write addresses. For offline memory checking, each read is paired with a "virtual" write,
@@ -324,7 +325,7 @@ impl<F: PrimeField, G: CurveGroup<ScalarField = F>> BytecodePolynomials<F, G> {
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct BytecodeCommitment<G: CurveGroup> {
     pub trace_commitments: Vec<HyraxCommitment<NUM_R1CS_POLYS, G>>,
     pub t_final_commitment: HyraxCommitment<1, G>,
@@ -564,7 +565,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct BytecodeReadWriteOpenings<F>
 where
     F: PrimeField,
@@ -653,7 +654,7 @@ where
     }
 }
 
-#[derive(CanonicalSerialize, CanonicalDeserialize)]
+#[derive(Clone, CanonicalSerialize, CanonicalDeserialize)]
 pub struct BytecodeInitFinalOpenings<F>
 where
     F: PrimeField,

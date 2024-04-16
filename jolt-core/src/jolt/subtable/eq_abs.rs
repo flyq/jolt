@@ -4,7 +4,7 @@ use std::marker::PhantomData;
 
 use super::LassoSubtable;
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct EqAbsSubtable<F: PrimeField> {
     _field: PhantomData<F>,
 }

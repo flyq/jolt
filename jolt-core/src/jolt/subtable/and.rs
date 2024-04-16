@@ -5,7 +5,7 @@ use std::marker::PhantomData;
 use super::LassoSubtable;
 use crate::utils::split_bits;
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct AndSubtable<F: PrimeField> {
     _field: PhantomData<F>,
 }
