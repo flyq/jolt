@@ -4,9 +4,10 @@ use ark_ff::PrimeField;
 use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};
 use rayon::prelude::*;
 
-use crate::utils::mul_0_1_optimized;
-
+mod sparse;
 use super::spartan::{IndexablePoly, SpartanError};
+use crate::utils::mul_0_1_optimized;
+pub(crate) use sparse::SparseMatrix;
 
 /// A type that holds the shape of the R1CS matrices
 #[derive(Clone, Debug, PartialEq, Eq, CanonicalSerialize, CanonicalDeserialize)]
